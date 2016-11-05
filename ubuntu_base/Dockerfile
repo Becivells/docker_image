@@ -15,10 +15,12 @@ RUN  mkdir -p /var/log/supervisor    &&\
      mkdir -p /home/user/.ssh/
 
 #设置证书登录禁止密码登陆 如果想使用去掉下面两个#号   
-#RUN echo "PasswordAuthentication no" >>/etc/ssh/sshd_config
-#COPY id_rsa.pub /home/user/.ssh/authorized_keys
 
-COPY sshd.conf  /etc/supervisor/conf.d/sshd.conf
+#COPY id_rsa.pub /home/user/.ssh/authorized_keys
+COPY supervisord.conf  /etc/supervisord.conf
+COPY sshd.conf  /etc/supervisord.d/sshd.conf
+COPY sshd_config /etc/ssh/sshd_config
+#RUN echo "PasswordAuthentication no" >>/etc/ssh/sshd_config
 
 RUN chown user:user -R /home/user/ &&\
     chmod 600 /home/user/.ssh/authorized_keys

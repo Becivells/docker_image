@@ -14,7 +14,10 @@ RUN  mkdir -p /var/log/supervisor    &&\
      sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config &&\
      mkdir -p /home/user/.ssh/
 
+#设置证书登录禁止密码登陆 如果想使用去掉下面两个#号   
+#RUN echo "PasswordAuthentication no" >>/etc/ssh/sshd_config
 #COPY id_rsa.pub /home/user/.ssh/authorized_keys
+
 COPY sshd.conf  /etc/supervisor/conf.d/sshd.conf
 
 RUN chown user:user -R /home/user/ &&\

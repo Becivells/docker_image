@@ -13,6 +13,7 @@ RUN  mkdir -p /var/run/sshd          &&\
      echo "user:123456" | chpasswd   &&\
      echo "root:123456" | chpasswd   &&\
      sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config &&\
+     echo "user    ALL=(ALL:ALL) ALL" >> /etc/sudoers &&\
      mkdir -p /home/user/.ssh/ &&\
      ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa &&\
      ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa &&\

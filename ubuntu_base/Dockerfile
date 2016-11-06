@@ -14,6 +14,7 @@ RUN  mkdir -p /var/log/supervisor    &&\
      echo "user:123456" | chpasswd   &&\
      echo "root:123456" | chpasswd   &&\
      sed -i "s/PermitRootLogin.*/PermitRootLogin no/g" /etc/ssh/sshd_config &&\
+     echo "user    ALL=(ALL:ALL) ALL" >> /etc/sudoers &&\
      mkdir -p /home/user/.ssh/
 
 #COPY id_rsa.pub /home/user/.ssh/authorized_keys

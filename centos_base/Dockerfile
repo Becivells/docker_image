@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7
 MAINTAINER  becivells <becivells@gmail.com>
 
 RUN yum -y update && yum install -y  epel-release  

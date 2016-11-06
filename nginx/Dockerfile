@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.4
 MAINTAINER becivells <becivells@gmail.com> 
 RUN apk add --update openssh
 RUN apk add nginx 

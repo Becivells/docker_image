@@ -8,7 +8,7 @@ docker pull becivells/bandersnatch
 运行   
 docker run -d -p 80:80 -v /主机要存放的目录:/opt/pypi/ bandersnatch   
    
-指定同步时间运行至少为300s   
+指定同步时间运行至少为300s   默认是6个小时同步一次
 docker run -d -p 80:80  -e "TIMESLEEP=600" -v /主机要存放的目录:/opt/pypi/ bandersnatch   
 
 使用方法因为http不被建议使用，我们也没有证书可以在home目录下创建.pip文件夹   

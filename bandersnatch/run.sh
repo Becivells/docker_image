@@ -1,10 +1,9 @@
 #!/bin/bash
 
-#set -e
 set -x
 
 #if update finsh will sleep $TIMESLEEP
-[[ $TIMESLEEP -ge 300  ]] || TIMESLEEP=300
+[[ $TIMESLEEP -ge 300  ]] || export TIMESLEEP=21600
 echo $TIMESLEEP
 
 while true
